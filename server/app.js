@@ -1,9 +1,9 @@
-const express = require("express");
-const mongoose = require("mongoose");
-require("dotenv").config();
+const express = require('express');
+const mongoose = require('mongoose');
+require('dotenv').config();
 
 // import routes
-const userRoutes = require("./routes/user");
+const userRoutes = require('./routes/user');
 
 // app
 const app = express();
@@ -12,12 +12,12 @@ const app = express();
 mongoose
   .connect(process.env.CONNECTIONSTRING, {
     useNewUrlParser: true,
-    useCreateIndex: true
+    useCreateIndex: true,
   })
-  .then(() => console.log("DB Connected"));
+  .then(() => console.log('DB Connected'));
 
 // routes middleware
-app.use("/api", userRoutes);
+app.use('/api', userRoutes);
 
 const port = process.env.PORT || 8000;
 
