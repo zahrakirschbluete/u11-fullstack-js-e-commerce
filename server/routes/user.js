@@ -4,6 +4,8 @@ const router = express.Router();
 
 const { signup } = require('../controllers/user');
 
-router.post('/signup', signup);
+const { userSignupValidator } = require('../validator');
+
+router.post('/signup', userSignupValidator, signup);
 
 module.exports = router;
