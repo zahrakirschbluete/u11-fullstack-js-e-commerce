@@ -45,3 +45,15 @@ exports.signin = (req, res) => {
     return res.json({ token, user: { _id, email, name, role } });
   });
 };
+
+exports.signout = (req, res) => {
+  res.clearCookie('t');
+  res.json({ message: 'Signout success' });
+};
+
+// newer version of express-jwt requiers algorithms, resolves the error 'Algorithms should be set'
+exports.requireSignin = expressJwt({
+  secret: process.env.JWT_SECRET,
+  algorithms: ['HS256'], // added later
+  userProperty: 'auth',
+});
