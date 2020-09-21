@@ -1,9 +1,12 @@
-// Get unique error field name
+'use strict';
 
+/**
+ * Get unique error field name
+ */
 const uniqueMessage = error => {
   let output;
   try {
-    const fieldName = error.message.substring(
+    let fieldName = error.message.substring(
       error.message.lastIndexOf('.$') + 2,
       error.message.lastIndexOf('_1')
     );
@@ -18,7 +21,9 @@ const uniqueMessage = error => {
   return output;
 };
 
-// Get the erroror message from error object
+/**
+ * Get the erroror message from error object
+ */
 exports.errorHandler = error => {
   let message = '';
 
