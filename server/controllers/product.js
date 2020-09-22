@@ -208,7 +208,7 @@ exports.listCategories = (req, res) => {
  * implement product search in react frontend
  * show categories in checkbox and price range in radio buttons
  * as the user clicks on those checkbox and radio buttons
- * make api request and show the products to users based on what he wants
+ * ake api request and show the products to users based on what he wants
  */
 
 exports.listBySearch = (req, res) => {
@@ -253,4 +253,12 @@ exports.listBySearch = (req, res) => {
         data,
       });
     });
+};
+
+exports.photo = (req, res, next) => {
+  if (req.product.photo.data) {
+    res.set('Content-Type', req.product.photo.contentType);
+    return res.send(req.product.photo.data);
+  }
+  next();
 };
