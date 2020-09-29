@@ -1,11 +1,7 @@
 const formidable = require('formidable');
-
 const _ = require('lodash');
-
 const fs = require('fs');
-
 const Product = require('../models/product');
-
 const { errorHandler } = require('../helpers/dbErrorHandler');
 
 exports.productById = (req, res, next, id) => {
@@ -205,10 +201,10 @@ exports.listCategories = (req, res) => {
 
 /**
  * list products by search
- * implement product search in react frontend
- * show categories in checkbox and price range in radio buttons
+ * we will implement product search in react frontend
+ * we will show categories in checkbox and price range in radio buttons
  * as the user clicks on those checkbox and radio buttons
- * ake api request and show the products to users based on what he wants
+ * we will make api request and show the products to users based on what he wants
  */
 
 exports.listBySearch = (req, res) => {
