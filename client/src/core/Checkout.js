@@ -8,7 +8,7 @@ import { emptyCart } from './cartHelpers';
 import Card from './Card';
 import { isAuthenticated } from '../auth';
 import { Link } from 'react-router-dom';
-import 'braintree-web';
+
 import DropIn from 'braintree-web-drop-in-react';
 
 const Checkout = ({ products }) => {
