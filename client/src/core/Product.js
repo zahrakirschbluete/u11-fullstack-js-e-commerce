@@ -34,26 +34,27 @@ const Product = props => {
   return (
     <Layout
       title={product && product.name}
-      description={
-        product && product.description && product.description.substring(0, 100)
-      }
+      description={product && product.description && product.description}
       className='container-fluid'
     >
       <div className='row'>
-        <div className='col-8'>
+        <div className='ml-5 col-4'>
           {product && product.description && (
             <Card product={product} showViewProductButton={false} />
           )}
         </div>
-
-        <div className='col-4'>
-          <h4>Related products</h4>
-          {relatedProduct.map((p, i) => (
-            <div className='mb-3'>
-              <Card key={i} product={p} />
-            </div>
-          ))}
+        <div className='col-6'>
+          <h2>{product.title}</h2>
+          <p className='text-justify'>{product.description}</p>
         </div>
+      </div>
+      <h4 className='m-4'>Related products</h4>
+      <div className='row'>
+        {relatedProduct.map((p, i) => (
+          <div className='col-3'>
+            <Card key={i} product={p} />
+          </div>
+        ))}
       </div>
     </Layout>
   );

@@ -201,14 +201,6 @@ exports.listCategories = (req, res) => {
   });
 };
 
-/**
- * list products by search
- * we will implement product search in react frontend
- * we will show categories in checkbox and price range in radio buttons
- * as the user clicks on those checkbox and radio buttons
- * we will make api request and show the products to users based on what he wants
- */
-
 exports.listBySearch = (req, res) => {
   let order = req.body.order ? req.body.order : 'desc';
   let sortBy = req.body.sortBy ? req.body.sortBy : '_id';
@@ -282,4 +274,24 @@ exports.listSearch = (req, res) => {
       res.json(products);
     }).select('-photo');
   }
+};
+
+exports.decreaseQuantity = (req, res, next) => {
+  let bulkOps = req.body.order.products.map(item => {
+    return {
+      updateOne: {
+        filter: { _id: item._id },
+        update: { $inc: { quantity: -item.count, sold: +item.count } },
+      },
+    };
+  });
+
+  Product.bulkWrite(bulkOps, {}, (error, products) => {
+    if (error) {
+      return res.status(400).json({
+        error: 'Could not update product',
+      });
+    }
+    next();
+  });
 };
