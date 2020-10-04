@@ -54,6 +54,8 @@
 
 .product-img {
   min-height: 100px;
+  /* max-height: 75%;
+  max-width: 75%; */
 }
 
 .jumbotron h2 {

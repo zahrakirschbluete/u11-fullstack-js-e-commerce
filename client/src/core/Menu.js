@@ -5,24 +5,28 @@ import { itemTotal } from './cartHelpers';
 
 const isActive = (history, path) => {
   if (history.location.pathname === path) {
-    return { color: '#ff9900' };
+    return { fontWeight: 'bold' };
   } else {
-    return { color: '#ffffff' };
+    return { color: '#343a40' };
   }
 };
 
 const Menu = ({ history }) => (
-  <div>
-    <ul className='nav nav-tabs bg-primary'>
+  <div className='mb-5'>
+    <ul className='nav nav-tabs bg-light'>
       <li className='nav-item'>
-        <Link className='nav-link' style={isActive(history, '/')} to='/'>
+        <Link
+          className='nav-link text-dark'
+          style={isActive(history, '/')}
+          to='/'
+        >
           Home
         </Link>
       </li>
 
-      <li className='nav-item'>
+      <li className='nav-item text-dark'>
         <Link
-          className='nav-link'
+          className='nav-link text-dark'
           style={isActive(history, '/shop')}
           to='/shop'
         >
@@ -32,7 +36,7 @@ const Menu = ({ history }) => (
 
       <li className='nav-item'>
         <Link
-          className='nav-link'
+          className='nav-link text-dark'
           style={isActive(history, '/cart')}
           to='/cart'
         >
@@ -46,7 +50,7 @@ const Menu = ({ history }) => (
       {isAuthenticated() && isAuthenticated().user.role === 0 && (
         <li className='nav-item'>
           <Link
-            className='nav-link'
+            className='nav-link text-dark'
             style={isActive(history, '/user/dashboard')}
             to='/user/dashboard'
           >
