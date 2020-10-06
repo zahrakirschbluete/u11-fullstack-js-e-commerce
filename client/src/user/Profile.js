@@ -55,7 +55,7 @@ const Profile = ({ match }) => {
 
   const redirectUser = success => {
     if (success) {
-      return <Redirect to='/cart' />;
+      return <Redirect to='/' />;
     }
   };
 
