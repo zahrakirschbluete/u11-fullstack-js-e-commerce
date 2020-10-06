@@ -38,6 +38,21 @@ exports.update = (req, res) => {
   );
 };
 
+exports.remove = (req, res) => {
+  let user = req.profile;
+
+  user.remove((err, deletedUser) => {
+    if (err) {
+      return res.status(400).json({
+        error: errorHandler(err),
+      });
+    }
+    res.json({
+      message: 'User deleted successfully',
+    });
+  });
+};
+
 exports.addOrderToUserHistory = (req, res, next) => {
   let history = [];
 
@@ -80,4 +95,32 @@ exports.purchaseHistory = (req, res) => {
       }
       res.json(orders);
     });
+};
+
+exports.list = (req, res) => {
+  // User.find({}, function (err, users) {
+  //   res.render('/users', { users: users });
+  // });
+
+  User.find({}, function (err, users) {
+    var userMap = {};
+    userArr = [];
+
+    users.forEach(function (user) {
+      userMap[user._id] = user;
+      userArr.push(user);
+    });
+
+    res.json(userArr);
+  });
+  let user = req.query.profile;
+
+  // user.find({}).exec((err, products) => {
+  //   if (err) {
+  //     return res.status(400).json({
+  //       error: 'Users not found',
+  //     });
+  //   }
+  //   res.json(users);
+  // });
 };

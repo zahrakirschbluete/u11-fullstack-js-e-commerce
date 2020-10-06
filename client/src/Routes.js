@@ -14,6 +14,10 @@ import Product from './core/Product';
 import Cart from './core/Cart';
 import Orders from './admin/Orders';
 import Profile from './user/Profile';
+import ManageProducts from './admin/ManageProducts';
+import ManageUsers from './admin/ManageUsers';
+import UpdateProduct from './admin/UpdateProduct';
+import UpdateUser from './admin/UpdateUser';
 
 const Routes = () => {
   return (
@@ -23,6 +27,7 @@ const Routes = () => {
         <Route path='/shop' exact component={Shop} />
         <Route path='/signin' exact component={Signin} />
         <Route path='/signup' exact component={Signup} />
+        <AdminRoute path='/admin/create/user' exact component={Signup} />
         <PrivateRoute path='/user/dashboard' exact component={Dashboard} />
         <AdminRoute path='/admin/dashboard' exact component={AdminDashboard} />
         <AdminRoute path='/create/category' exact component={AddCategory} />
@@ -31,6 +36,14 @@ const Routes = () => {
         <Route path='/cart' exact component={Cart} />
         <AdminRoute path='/admin/orders' exact component={Orders} />
         <PrivateRoute path='/profile/:userId' exact component={Profile} />
+        <AdminRoute path='/admin/products' exact component={ManageProducts} />
+        <AdminRoute path='/admin/users' exact component={ManageUsers} />
+        <AdminRoute
+          path='/admin/product/update/:productId'
+          exact
+          component={UpdateProduct}
+        />
+        <AdminRoute path='/admin/user/update' exact component={UpdateUser} />
       </Switch>
     </BrowserRouter>
   );

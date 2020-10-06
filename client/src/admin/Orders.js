@@ -39,10 +39,10 @@ const Orders = () => {
   const showOrdersLength = () => {
     if (orders.length > 0) {
       return (
-        <h1 className='text-danger display-2'>Total orders: {orders.length}</h1>
+        <h1 className='text-dark display-2'>Total orders: {orders.length}</h1>
       );
     } else {
-      return <h1 className='text-danger'>No orders</h1>;
+      return <h1 className='text-dark'>No orders</h1>;
     }
   };
 
@@ -83,11 +83,7 @@ const Orders = () => {
   );
 
   return (
-    <Layout
-      title='Orders'
-      description={`G'day ${user.name}, you can manage all the orders here`}
-      className='container-fluid'
-    >
+    <Layout>
       <div className='row'>
         <div className='col-md-8 offset-md-2'>
           {showOrdersLength()}
@@ -100,7 +96,7 @@ const Orders = () => {
                 style={{ borderBottom: '5px solid indigo' }}
               >
                 <h2 className='mb-5'>
-                  <span className='bg-primary'>Order ID: {o._id}</span>
+                  <span className='bg-warning'>Order ID: {o._id}</span>
                 </h2>
 
                 <ul className='list-group mb-2'>
