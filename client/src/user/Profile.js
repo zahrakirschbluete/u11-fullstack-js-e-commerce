@@ -39,7 +39,7 @@ const Profile = ({ match }) => {
     e.preventDefault();
     update(match.params.userId, token, { name, email, password }).then(data => {
       if (data.error) {
-        console.lgo(data.error);
+        console.log(data.error);
       } else {
         updateUser(data, () => {
           setValues({
@@ -55,7 +55,7 @@ const Profile = ({ match }) => {
 
   const redirectUser = success => {
     if (success) {
-      return <Redirect to='/cart' />;
+      return <Redirect to='/' />;
     }
   };
 
@@ -96,11 +96,7 @@ const Profile = ({ match }) => {
   );
 
   return (
-    <Layout
-      title='Profile'
-      description='Update your profile'
-      className='container-fluid'
-    >
+    <Layout>
       <h2 className='mb-4'>Profile update</h2>
       {profileUpdate(name, email, password)}
       {redirectUser(success)}

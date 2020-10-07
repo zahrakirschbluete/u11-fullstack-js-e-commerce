@@ -35,8 +35,11 @@ export const updateUser = (user, next) => {
   if (typeof window !== 'undefined') {
     if (localStorage.getItem('jwt')) {
       let auth = JSON.parse(localStorage.getItem('jwt'));
-      auth.user = user;
-      localStorage.setItem('jwt', JSON.stringify(auth));
+
+      if (auth.user._id == user._id) {
+        auth.user = user;
+        localStorage.setItem('jwt', JSON.stringify(auth));
+      }
       next();
     }
   }

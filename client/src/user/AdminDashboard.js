@@ -24,8 +24,23 @@ const AdminDashboard = () => {
             </Link>
           </li>
           <li className='list-group-item'>
+            <Link className='nav-link' to='/admin/create/user'>
+              Create User
+            </Link>
+          </li>
+          <li className='list-group-item'>
             <Link className='nav-link' to='/admin/orders'>
               View Orders
+            </Link>
+          </li>
+          <li className='list-group-item'>
+            <Link className='nav-link' to='/admin/products'>
+              Manage Products
+            </Link>
+          </li>
+          <li className='list-group-item'>
+            <Link className='nav-link' to='/admin/users'>
+              Manage Users
             </Link>
           </li>
         </ul>
@@ -49,14 +64,10 @@ const AdminDashboard = () => {
   };
 
   return (
-    <Layout
-      title='Dashboard'
-      description={`G'day ${name}!`}
-      className='container-fluid'
-    >
+    <Layout>
       <div className='row'>
-        <div className='col-3'>{adminLinks()}</div>
-        <div className='col-9'>{adminInfo()}</div>
+        <div className='col-12 col-md-3 mb-3'>{adminLinks()}</div>
+        <div className='col-12 col-md-9'>{adminInfo()}</div>
       </div>
     </Layout>
   );
