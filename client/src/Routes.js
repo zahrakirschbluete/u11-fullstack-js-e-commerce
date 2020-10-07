@@ -17,7 +17,6 @@ import Profile from './user/Profile';
 import ManageProducts from './admin/ManageProducts';
 import ManageUsers from './admin/ManageUsers';
 import UpdateProduct from './admin/UpdateProduct';
-import UpdateUser from './admin/UpdateUser';
 
 const Routes = () => {
   return (
@@ -43,7 +42,6 @@ const Routes = () => {
           exact
           component={UpdateProduct}
         />
-        <AdminRoute path='/admin/user/update' exact component={UpdateUser} />
       </Switch>
     </BrowserRouter>
   );
