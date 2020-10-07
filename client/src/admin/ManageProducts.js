@@ -36,11 +36,7 @@ const ManageProducts = () => {
   console.log(products);
 
   return (
-    <Layout
-      title='Manage Products'
-      description='Perform CRUD on products'
-      className='container-fluid'
-    >
+    <Layout>
       <div className='row'>
         <div className='col-12'>
           <ul className='list-group'>

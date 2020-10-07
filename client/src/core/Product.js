@@ -32,11 +32,7 @@ const Product = props => {
   }, [props]);
 
   return (
-    <Layout
-      title={product && product.name}
-      description={product && product.description && product.description}
-      className='container-fluid'
-    >
+    <Layout>
       <div className='row'>
         <div className='ml-5 col-4'>
           {product && product.description && (

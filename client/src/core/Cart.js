@@ -40,11 +40,7 @@ const Cart = () => {
   );
 
   return (
-    <Layout
-      title='Shopping Cart'
-      description='Manage your cart items. Add remove checkout or continue shopping.'
-      className='container-fluid'
-    >
+    <Layout>
       <div className='row'>
         <div className='col-12 col-md-6'>
           {items.length > 0 ? showItems(items) : noItemsMessage()}
